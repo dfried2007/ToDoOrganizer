@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">To Do Organizer</string>
+    <string name="add_label">Add</string>
+    <string name="add_new_item">New item here</string>
+    <string name="due_label">"Due: "</string>
+    <string name="enter_text_label">Please enter some text.</string>
+    <string name="task_name_label">Task Name:</string>
+    <string name="due_date_label">Due Date:</string>
+    <string name="details_label">Details:</string>
+    <string name="priority_label">Priority:</string>
+    <string name="a1to9_label">(1 - 9)</string>
+    <string name="status_label">Status:</string>
+    <string name="alert_label">Lead Time:</string>
+    <string name="delete_item_label">Delete this item?</string>
+    <string name="save_label">Save</string>
+    <string name="days_label">days</string>
+</resources>
