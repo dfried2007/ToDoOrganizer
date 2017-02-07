@@ -26,15 +26,15 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 * [y] List anything else that you can get done to improve the app functionality!
-      -Added icons so users can easily identify the priority and completion status.
-      -Employed Spinners to limit data input for 3 enumerations.
-      -Added an optional task details field.
-      -Added a confirmation dialog before deletion of a todo task.
-      -Optimized the ListView with a ViewHolder.
-Future version may:
-       -Add a date picker button and sub-dialog fragmaent.
-       -Fire off on-device notifications on overdue thresholds.
-       -Fire off email alerts on overdue thresholds.  (Requires storing configuration data.)
+      ** -Added icons so users can easily identify the priority and completion status.
+      ** -Employed Spinners to limit data input for 3 enumerations.
+      ** -Added an optional task details field.
+      ** -Added a confirmation dialog before deletion of a todo task.
+      ** -Optimized the ListView with a ViewHolder.
+* Future version may:
+      ** -Add a date picker button and sub-dialog fragmaent.
+      ** -Fire off on-device notifications on overdue thresholds.
+      ** -Fire off email alerts on overdue thresholds.  (Requires storing configuration data.)
 
 ## Video Walkthrough 
 
