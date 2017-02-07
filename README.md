@@ -38,7 +38,7 @@ Future version may:
 
 ## Video Walkthrough 
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of implemented user stories:  (https://giphy.com/gifs/todo-organizer-d1E0U0DTpK5DCAQU)
 
 <img src='https://giphy.com/gifs/todo-organizer-d1E0U0DTpK5DCAQU' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
