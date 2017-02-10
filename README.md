@@ -39,9 +39,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough 
 
-Here's a walkthrough of implemented user stories:  (https://giphy.com/gifs/todo-organizer-d1E0U0DTpK5DCAQU)
+Here's a walkthrough of implemented user stories:  (http://i.imgur.com/eDeG1Rv.gifv)
 
-<img src='https://giphy.com/gifs/todo-organizer-d1E0U0DTpK5DCAQU' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/eDeG1Rv.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
