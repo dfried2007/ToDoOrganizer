@@ -24,6 +24,7 @@ import java.util.Collections;
 public class MainActivity extends AppCompatActivity {
 
     protected static final String FILENAME = "todos.txt";
+    public static final String EXTRA_DATE = "com.example.dfrie.todoorganizer.DATE";
 
     private ArrayList<ToDoTask> items;
     private ToDoItemAdapter itemsAdapter;

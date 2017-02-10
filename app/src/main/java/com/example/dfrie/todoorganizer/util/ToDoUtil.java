@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class ToDoUtil {
 
-    private static final SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yyyy");
+    public static final SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yyyy");
 
     private static final String DELIMITER = "\u0000";
 

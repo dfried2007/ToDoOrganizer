@@ -14,4 +14,5 @@
     <string name="delete_item_label">Delete this item?</string>
     <string name="save_label">Save</string>
     <string name="days_label">days</string>
+    <string name="button_ellipse">…</string>
 </resources>

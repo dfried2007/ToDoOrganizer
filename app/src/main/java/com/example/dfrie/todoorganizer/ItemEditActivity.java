@@ -1,5 +1,6 @@
 package com.example.dfrie.todoorganizer;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.dfrie.todoorganizer.enums.TaskStatus;
+import com.example.dfrie.todoorganizer.fragments.DatePickerFragment;
 import com.example.dfrie.todoorganizer.model.ToDoTask;
 import com.example.dfrie.todoorganizer.util.ToDoUtil;
 
@@ -118,4 +120,8 @@ public class ItemEditActivity extends AppCompatActivity {
         }
     }
 
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), DatePickerFragment.D_TAG);
+    }
 }

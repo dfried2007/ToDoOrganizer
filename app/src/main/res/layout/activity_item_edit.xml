@@ -46,16 +46,33 @@
         android:id="@+id/tvStatus"
         android:layout_marginRight="10dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
         android:layout_column="1"
         android:layout_gravity="left|top"
-        android:layout_row="1"
-        android:id="@+id/etDueDate"
-        android:layout_marginTop="8dp" />
+        android:layout_row="1">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/etDueDate"
+            android:layout_marginTop="8dp"
+            android:width="@android:dimen/thumbnail_width" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/button_ellipse"
+            android:id="@+id/button_ellipse"
+            android:onClick="showDatePickerDialog"
+            style="?android:attr/buttonStyleSmall"/>
+    </LinearLayout>
 
     <EditText
         android:layout_width="wrap_content"
