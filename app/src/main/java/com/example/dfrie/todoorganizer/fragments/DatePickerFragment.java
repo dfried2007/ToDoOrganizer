@@ -36,7 +36,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         EditText editview = (EditText)getActivity().findViewById(R.id.etDueDate);
         if (editview != null) {
             String duedate = editview.getText().toString();
-
             if (duedate.length()>4) {
                 Date date;
                 try {
@@ -52,14 +51,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
                 }
             }
         }
-
         // Create a new instance of DatePickerDialog and return it
-/*
-        //  This requires API level 16...
-        DatePickerDialog dpd = new DatePickerDialog(getActivity(), this, year, month, day);
-        dpd.getDatePicker().setBackground(new ColorDrawable(0x80202020));
-*/
-
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
@@ -69,12 +61,11 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         intent.putExtra(MainActivity.EXTRA_DATE, new int[] {year, month, day});
 
         // Show the date chosen by the user...
-        ////Log.i(D_TAG , "result date=" + year + "-" + month + "-" + day);
+        Log.d(D_TAG , "result date=" + year + "-" + month + "-" + day);
         EditText editview = (EditText)getActivity().findViewById(R.id.etDueDate);
         if (editview != null) {
             final Calendar c = Calendar.getInstance();
             c.set(year, month, day);
-            //java.text.DateFormat df = DateFormat.getDateFormat(view.getContext());
             editview.setText(ToDoUtil.SDF.format(c.getTime()));
             Log.i(D_TAG , "result date.  text=" + ToDoUtil.SDF.format(c.getTime()));
         } else {

@@ -21,6 +21,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 
@@ -46,9 +47,9 @@ public class ItemEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_edit);
 
         Intent intent = getIntent();
-        String posStr = intent.getStringExtra("position");
+        String posStr = intent.getStringExtra(MainActivity.EXTRA_POSITION);
         position = Integer.parseInt(posStr);
-        String serial = intent.getStringExtra("payload");
+        String serial = intent.getStringExtra(MainActivity.EXTRA_PAYLOAD);
         todo = ToDoUtil.fromString(serial);
 
         etTaskName = (EditText)findViewById(R.id.etTaskName);
@@ -93,24 +94,36 @@ public class ItemEditActivity extends AppCompatActivity {
             return;
         }
         if (position > rows.size()-1) {
-            Toast.makeText(this, "Position "+position+" beyond data file", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Position "+position+" beyond data file size", Toast.LENGTH_LONG).show();
             return;
         }
 
+        ArrayList<ToDoTask> items = new  ArrayList<ToDoTask>();
+        for (String row: rows) {
+            todo = ToDoUtil.fromString(row);
+            items.add(todo);
+        }
+
+        todo = new ToDoTask();
         todo.setTaskName(etTaskName.getText().toString());
         todo.setTaskDetail(etDetails.getText().toString());
         todo.setTaskPriority(spPriority.getSelectedItemPosition()+1);
         todo.setTaskStatus(spStatus.getSelectedItemPosition());
         todo.setTaskAlertLeadtime(spAlert.getSelectedItemPosition()+1);
-
         try {
             todo.setTaskDate(ToDoUtil.parseDate(etDueDate.getText().toString()));
         } catch (Exception e) {
             Toast.makeText(this, "Date format is not legal", Toast.LENGTH_LONG).show();
             todo.setTaskDate(new Date());
         }
+        items.set(position, todo);
 
-        rows.set(position, ToDoUtil.asString(todo));
+        Collections.sort(items);
+
+        rows =  new ArrayList<String>();
+        for (ToDoTask task: items) {
+            rows.add(ToDoUtil.asString(task));
+        }
 
         try {
             FileUtils.writeLines(file, rows);

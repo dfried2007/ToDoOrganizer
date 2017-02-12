@@ -8,11 +8,10 @@
     <string name="due_date_label">Due Date:</string>
     <string name="details_label">Details:</string>
     <string name="priority_label">Priority:</string>
-    <string name="a1to9_label">(1 - 9)</string>
     <string name="status_label">Status:</string>
     <string name="alert_label">Lead Time:</string>
-    <string name="delete_item_label">Delete this item?</string>
+    <string name="delete_item_label">Delete \'\'{0}\'\'?</string>
     <string name="save_label">Save</string>
-    <string name="days_label">days</string>
+    <string name="days_label">day(s)</string>
     <string name="button_ellipse">…</string>
 </resources>

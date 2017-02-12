@@ -149,14 +149,31 @@
         android:id="@+id/tvAlert"
         android:layout_marginRight="10dp" />
 
-    <Spinner
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spAlert"
         android:layout_column="1"
-        android:layout_gravity="left|top"
-        android:layout_row="5"
-        android:layout_marginTop="8dp" />
+        android:layout_row="5">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spAlert"
+            android:layout_gravity="left|top"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:text="@string/days_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/tvDays" />
+
+    </LinearLayout>
 
     <TextView
         android:text="@string/task_name_label"

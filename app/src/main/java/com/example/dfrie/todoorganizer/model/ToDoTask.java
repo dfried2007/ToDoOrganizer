@@ -66,7 +66,13 @@ public class ToDoTask implements Comparable {
     @Override
     public int compareTo(Object o) {
         ToDoTask other = (ToDoTask)o;
+        // This requires minimum API level 19, so...
+        //return Long.compare(taskDate.getTime(), other.getTaskDate().getTime());
         long diff = taskDate.getTime() - other.getTaskDate().getTime();
-        return diff > 0 ? 1 : (diff < 0 ? -1 : 0);
+        if (diff==0) {
+            diff = taskPriority - other.getTaskPriority();
+            return diff==0L? 0: (diff<0L? -1: 1);
+        }
+        return diff<0L? -1: 1;
     }
 }

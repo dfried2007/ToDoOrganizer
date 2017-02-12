@@ -65,14 +65,20 @@ public class ToDoItemAdapter  extends ArrayAdapter<ToDoTask> {
         viewHolder.tvToDoDetail.setText(sb.toString());
 
         if (todo.getTaskStatus() == TaskStatus.ABORTED.getValue()) {
+            viewHolder.ivPriority.setVisibility(View.INVISIBLE);
+            viewHolder.ivStatus.setVisibility(View.VISIBLE);
             viewHolder.ivStatus.setImageResource(android.R.drawable.ic_delete);
             viewHolder.tvToDo.setTextColor(Color.GRAY);
         } else if (todo.getTaskStatus() == TaskStatus.DONE.getValue()) {
+            viewHolder.ivPriority.setVisibility(View.INVISIBLE);
+            viewHolder.ivStatus.setVisibility(View.VISIBLE);
             //TODO...
             //viewHolder.ivStatus.setImageResource(android.R.drawable.btn_check_buttonless_on);
             viewHolder.ivStatus.setImageResource(android.R.drawable.checkbox_on_background);
             viewHolder.tvToDo.setTextColor(Color.GRAY);
         } else {
+            viewHolder.ivPriority.setVisibility(View.VISIBLE);
+            viewHolder.ivStatus.setVisibility(View.INVISIBLE);
             //viewHolder.ivStatus.setImageResource(android.R.drawable.checkbox_off_background);
             if (todo.getTaskPriority() <= 2) {
                 viewHolder.ivPriority.setImageResource(android.R.drawable.star_on);

@@ -18,16 +18,20 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     protected static final String FILENAME = "todos.txt";
     public static final String EXTRA_DATE = "com.example.dfrie.todoorganizer.DATE";
+    public static final String EXTRA_PAYLOAD = "com.example.dfrie.todoorganizer.PAYLOAD";
+    public static final String EXTRA_POSITION = "com.example.dfrie.todoorganizer.POSITION";
 
     private ArrayList<ToDoTask> items;
-    private ToDoItemAdapter itemsAdapter;
+    protected ToDoItemAdapter itemsAdapter;
     private ListView lvItems;
     private EditText textEntry;
 
@@ -38,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         textEntry = (EditText)findViewById(R.id.tvEditText);
 
-        populateItems();
+        readItems();
+        itemsAdapter = new ToDoItemAdapter(this, items);
+
         lvItems = (ListView)findViewById(R.id.lvItems);
         lvItems.setAdapter(itemsAdapter);
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -50,8 +56,12 @@ public class MainActivity extends AppCompatActivity {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
                                 items.remove(position);
-                                itemsAdapter.notifyDataSetChanged();
                                 writeItems();
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        itemsAdapter.notifyDataSetChanged();
+                                    }
+                                });
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 break;
@@ -59,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage(R.string.delete_item_label)
+                String message = getString(R.string.delete_item_label);
+                String taskName = items.get(position).getTaskName();
+                builder.setMessage(MessageFormat.format(message, taskName))
                     .setPositiveButton(getString(android.R.string.yes), dialogClickListener)
                     .setNegativeButton(getString(android.R.string.no), dialogClickListener).show();
                 return true;
@@ -69,16 +81,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 Intent i = new Intent(getApplicationContext(), ItemEditActivity.class);
-                i.putExtra("payload", ToDoUtil.asString(items.get(position)));
-                i.putExtra("position", ""+position);
+                i.putExtra(EXTRA_PAYLOAD, ToDoUtil.asString(items.get(position)));
+                i.putExtra(EXTRA_POSITION, ""+position);
                 startActivity(i);
             }
         });
-    }
-
-    private void populateItems() {
-        readItems();
-        itemsAdapter = new ToDoItemAdapter(this, items);
     }
 
     public void addNewItem(View view) {
@@ -88,9 +95,16 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ToDoTask task = new ToDoTask();
             task.setTaskName(str);
+            task.setTaskDate(new Date());
+            task.setTaskPriority(5);
             itemsAdapter.add(task);
             textEntry.setText("");
             writeItems();
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    itemsAdapter.notifyDataSetChanged();
+                }
+            });
         }
     }
 
@@ -109,10 +123,10 @@ public class MainActivity extends AppCompatActivity {
             task = ToDoUtil.fromString(row);
             items.add(task);
         }
-        Collections.sort(items);
     }
 
     private void writeItems() {
+        Collections.sort(items);
         ArrayList<String> rows =  new ArrayList<String>();
         for (ToDoTask task: items) {
             rows.add(ToDoUtil.asString(task));
