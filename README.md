@@ -4,7 +4,7 @@ ToDo Organizer is an android app that allows building a todo list and basic todo
 
 Submitted by: Dave Friedman
 
-Time spent: 20 hours spent in total (I was new to Android Studio.)
+Time spent: 24 hours spent in total
 
 ## User Stories
 
@@ -29,7 +29,7 @@ The following **additional** features are implemented:
       ** -Added icons so users can easily identify the priority and completion status.
       ** -Employed Spinners to limit data input for 3 enumerations.
       ** -Added an optional task details field.
-      ** -Added a confirmation dialog before deletion of a todo task.
+      ** -Added a text-dynamic confirmation dialog before deletion of a todo task.
       ** -Optimized the ListView with a ViewHolder.
       ** -Added a date picker button and sub-dialog fragment.
 * Future version may:
@@ -39,9 +39,9 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough 
 
-Here's a walkthrough of implemented user stories:  (http://i.imgur.com/eDeG1Rv.gifv)
+Here's a walkthrough of implemented user stories:  (http://i.imgur.com/Wb2zKn5.gifv)
 
-<img src='http://i.imgur.com/eDeG1Rv.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/Wb2zKn5.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
