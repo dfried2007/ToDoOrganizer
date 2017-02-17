@@ -74,7 +74,8 @@ public class ToDoItemAdapter  extends ArrayAdapter<ToDoTask> {
             viewHolder.ivStatus.setVisibility(View.VISIBLE);
             //TODO...
             //viewHolder.ivStatus.setImageResource(android.R.drawable.btn_check_buttonless_on);
-            viewHolder.ivStatus.setImageResource(android.R.drawable.checkbox_on_background);
+            //viewHolder.ivStatus.setImageResource(android.R.drawable.checkbox_on_background);
+            viewHolder.ivStatus.setImageResource(R.mipmap.ic_stat_done);
             viewHolder.tvToDo.setTextColor(Color.GRAY);
         } else {
             viewHolder.ivPriority.setVisibility(View.VISIBLE);

@@ -29,14 +29,14 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
         <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="10dp"
             app:srcCompat="@android:drawable/divider_horizontal_bright"
             android:id="@+id/ivStatus"
             android:gravity="right"
-            android:cropToPadding="false"
-            android:adjustViewBounds="false"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
     <TextView

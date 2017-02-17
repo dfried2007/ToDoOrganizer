@@ -32,6 +32,7 @@ The following **additional** features are implemented:
       ** -Added a text-dynamic confirmation dialog before deletion of a todo task.
       ** -Optimized the ListView with a ViewHolder.
       ** -Added a date picker button and sub-dialog fragment.
+      ** -Added a custom icon.
 * Future version may:
       ** -Fire off on-device notifications on overdue thresholds.
       ** -Fire off email alerts on overdue thresholds.  (Requires storing configuration data.)
